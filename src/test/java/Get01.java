@@ -16,7 +16,7 @@ public class Get01 {
         //Given
         //            https://restful-booker.herokuapp.com/booking/3
         //        When
-        //            User sends a GET Request to the url
+        // ..           User sends a GET Request to the url
         // i) Set the URL
 
         String url = "https://restful-booker.herokuapp.com/booking";
