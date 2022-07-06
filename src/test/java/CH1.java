@@ -1,3 +1,4 @@
+
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -10,11 +11,9 @@ public class CH1 {
     public void test01() {
 
 
+        String urll = "https://restful-booker.herokuapp.com/booking/20297";
 
-
-        String urll="https://restful-booker.herokuapp.com/booking/20297";
-
-        Response res=given().when().get(urll);
+        Response res = given().when().get(urll);
 
         res.prettyPrint();
 
@@ -22,7 +21,7 @@ public class CH1 {
         System.out.println("res.statusCode() = " + res.statusCode());
 
         res.then().assertThat().statusCode(200).contentType("application/json; charset=utf-8").
-                statusLine("HTTP/1.1 200 OK").header("Server","Cowboy");
+                statusLine("HTTP/1.1 200 OK").header("Server", "Cowboy");
 
 
     }
