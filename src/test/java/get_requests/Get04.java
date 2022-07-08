@@ -6,6 +6,7 @@ import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.*;
 
 public class Get04 extends JsonPlaceHolderBaseUrl {
 
@@ -40,7 +41,21 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
 
         Response response=given().when().spec(spec).accept(ContentType.JSON).get("/{first}");
 
-        response.prettyPrint();
+       // response.prettyPrint();
 
+        // 4. step Do Assert
+
+        response.
+                then().
+                assertThat().
+                statusCode(200).
+                contentType(ContentType.JSON).
+                body("id",hasSize(200),
+                        "title",hasItem("quis eius est sint explicabo"),
+                        "userId",hasItems(2,7,9));
     }
 }
+
+// body("id",hasSize(200),
+//                      "title",hasItem("quis eius est sint explicabo"),
+//                      "userId",hasItems(2,7,9));
