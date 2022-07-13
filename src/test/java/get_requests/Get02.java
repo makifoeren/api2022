@@ -53,8 +53,8 @@ public class Get02 {
 
         // Response body de  spesifik bir veri bulunmadigi nasil assert edilir
 
-        Assert.assertFalse(response.asString().contains("TechProEd"));
 
+        Assert.assertFalse(response.asString().contains("TechProEd"));
 
         Assert.assertEquals("Cowboy",response.header("Server"));
     }
