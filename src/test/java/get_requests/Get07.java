@@ -67,9 +67,9 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         Assert.assertEquals(4,ids1.size());
 
         //4)Print all titles whose ids are less than 5
-
         List<String> titles = json.getList("findAll{it.id<5}.title");
         System.out.println(titles);
+
 
         // Assert that "delectus aut autem" is one of the titles whose id is less than 5
         Assert.assertTrue(titles.contains("delectus aut autem"));
