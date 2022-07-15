@@ -1,10 +1,12 @@
 package get_requests;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.replaceFiltersWith;
 
 public class Get02 {
 
@@ -30,6 +32,23 @@ public class Get02 {
     public void test01() {
 
 
+        String url="https://restful-booker.herokuapp.com/booking/100";
+
+        Response response=given().when().get(url);
+
+        response.prettyPrint();
+
+        response.then().assertThat().statusCode(200);
+
+       // Assert.assertTrue(response.asString().contains("Not Found"));
+
+        Assert.assertFalse(response.asString().contains("TechProEd"));
+
+
+        Assert.assertEquals("Cowboy",response.header("Server"));
+
+
+/*
 
         // 1. Step : Set the Url
         String url="https://restful-booker.herokuapp.com/booking/1005";
@@ -56,6 +75,6 @@ public class Get02 {
 
         Assert.assertFalse(response.asString().contains("TechProEd"));
 
-        Assert.assertEquals("Cowboy",response.header("Server"));
+        Assert.assertEquals("Cowboy",response.header("Server"));*/
     }
 }

@@ -26,13 +26,13 @@ public class Get05 extends HerOkuAppBaseUrl {
         // 1. Step: Set the Url
 
         spec.pathParams("first","booking").
-                queryParams("firstname","GGS","lastname","FINCH");
+                queryParams("firstname","Michael","lastname","%date:~4,2%%date:~7,2%%date:~10,4%_%time:~0,2%%time:~3,2%%time:~6,2%");
 
         // 2. Step set the expected data
 
         //3. Step Send the request get the reponse
         Response response=given().when().spec(spec).get("/{first}");
-        response.prettyPrint();
+      //  response.prettyPrint();
 
 
         // 4.Step Do Assert

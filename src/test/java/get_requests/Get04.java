@@ -41,7 +41,7 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
 
         Response response=given().when().spec(spec).accept(ContentType.JSON).get("/{first}");
 
-       // response.prettyPrint();
+       response.prettyPrint();
 
         // 4. step Do Assert
 
@@ -56,6 +56,3 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
     }
 }
 
-// body("id",hasSize(200),
-//                      "title",hasItem("quis eius est sint explicabo"),
-//                      "userId",hasItems(2,7,9));

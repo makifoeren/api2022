@@ -31,7 +31,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
     public void test01() {
 
         // 1.Step: Set the url
-        spec.pathParams("first", "todos");
+        spec.pathParam("first", "todos");
 
         // 2. Step: Set the expected data
 

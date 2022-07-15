@@ -3,6 +3,7 @@ package get_requests;
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -30,6 +31,18 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
     @Test
     public void test01() {
 
+        String url = "https://jsonplaceholder.typicode.com/todos/23";
+
+        Response response = given().when().get(url);
+
+        response.prettyPrint();
+
+       response.then().assertThat().statusCode(200).contentType(ContentType.JSON).
+           body("title",equalTo("et itaque necessitatibus maxime molestiae qui quas velit"),
+                  "completed",equalTo(false),
+                   "userId",equalTo(2));
+
+        /*
 
         // 1. Step Set the Url
       //  String url="https://jsonplaceholder.typicode.com/todos/23";
@@ -65,7 +78,7 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
 
 
 
-
+*/
 
 
     }
