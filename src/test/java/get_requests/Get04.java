@@ -33,13 +33,13 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
     public void test01() {
 
         // 1. step set the url
-        spec.pathParams("first", "todos");
+        spec.pathParam("first", "todos");
 
         // 2. step set the excepted date
 
         //3.step set the request and get response
 
-        Response response=given().when().spec(spec).accept(ContentType.JSON).get("/{first}");
+        Response response=given().when().spec(spec).contentType(ContentType.JSON).get("/{first}");
 
        response.prettyPrint();
 

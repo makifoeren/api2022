@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class Get06 extends HerOkuAppBaseUrl {
     /*
         Given
-            https://restful-booker.herokuapp.com/booking/555
+            https://restful-booker.herokuapp.com/booking/101
         When
             User send a GET request to the URL
         Then
@@ -24,15 +24,15 @@ public class Get06 extends HerOkuAppBaseUrl {
         And
             Response body should be like;
           {
-     "firstname": "Marcus",
-    "lastname": "Thomsen",
-    "totalprice": 717,
-    "depositpaid": true,
+     "firstname": "Linda",
+    "lastname": "Fowler",
+    "totalprice": 132,
+    "depositpaid": false,
     "bookingdates": {
-        "checkin": "2022-07-11",
-        "checkout": "2022-07-12"
+        "checkin": "2022-07-14",
+        "checkout": "2022-07-15"
     },
-    "additionalneeds": "Late Checkout"
+    "additionalneeds": "Extra Pillow"
 }
      */
 
@@ -50,27 +50,27 @@ public class Get06 extends HerOkuAppBaseUrl {
 
         // 4. Step Do Assert
 
-        response.
-                then().assertThat().statusCode(200).contentType(ContentType.JSON).
-                body("firstname", equalTo("Marcus"),
-                        "lastname", equalTo("Thomsen"),
-                        "totalprince", equalTo(717),
-                        "depositpaid", equalTo(true),
-                        "bookingdates.checkin", equalTo("2022-07-11"),
-                        "bookingdates.checkout", equalTo("2022-07-12"));
+        response.then().assertThat().statusCode(200).contentType(ContentType.JSON).
+                body("firstname", equalTo("Linda"),
+                        "lastname", equalTo("Fowler"),
+                        "totalprice", equalTo(132),
+                        "depositpaid", equalTo(false),
+                        "bookingdates.checkin",equalTo("2022-07-14"),
+                        "bookingdates.checkout",equalTo("2022-07-15"),
+                        "additionalneeds",equalTo("Extra Pillow"));
 
 
         // 2. yol JsonPath Class kullanilir
 
         JsonPath json = response.jsonPath();
 
-        Assert.assertEquals("Marcus", json.getString("firstname"));
-        Assert.assertEquals("Thomsen", json.getString("lastname"));
-        Assert.assertEquals(true, json.getBoolean("depositpaid"));
-        Assert.assertEquals("2022-07-11", json.getString("bookingdates.checkin"));
-        Assert.assertEquals("2022-07-12", json.getString("bookingdates.checkout"));
-        Assert.assertEquals(717, json.getInt("totalprice"));
-        Assert.assertEquals("Late Checkout", json.getInt("additionalneeds"));
+        Assert.assertEquals("Linda", json.getString("firstname"));
+        Assert.assertEquals("Fowler", json.getString("lastname"));
+        Assert.assertEquals(false, json.getBoolean("depositpaid"));
+        Assert.assertEquals("2022-07-14", json.getString("bookingdates.checkin"));
+        Assert.assertEquals("2022-07-15", json.getString("bookingdates.checkout"));
+        Assert.assertEquals(132, json.getInt("totalprice"));
+        Assert.assertEquals("Extra Pillow", json.getString("additionalneeds"));
 
 
         // 3.yol soft assertion
@@ -82,16 +82,17 @@ public class Get06 extends HerOkuAppBaseUrl {
 
         // 2) obje araciligi ile assert yapilir
 
-        softAssert.assertEquals(json.getString("firstname"), "Marcus", "firstname uyuşmadı");
-        softAssert.assertEquals(json.getString("lastname"), "Thomsen", "lastname uyuşmadı");
-        softAssert.assertEquals(json.getInt("totalprice"), 717, "totalprice uyuşmadı");
-        softAssert.assertEquals(json.getBoolean("depositpaid"), true, "depositpaid uyuşmadı");
-        softAssert.assertEquals(json.getString("bookingdates.checkin"), "2022-07-11", "checkin uyuşmadı");
-        softAssert.assertEquals(json.getString("bookingdates.checkout"), "2022-07-12", "checkout uyuşmadı");
-        softAssert.assertEquals(json.getString("additionalneeds"), "Late Checkout", "uyusmadi");
+        softAssert.assertTrue(response.asString().contains("firstname"), "Linda");
+        softAssert.assertEquals(json.getString("lastname"), "Fowler", "lastname uyuşmadı");
+        softAssert.assertEquals(json.getInt("totalprice"), 132, "totalprice uyuşmadı");
+        softAssert.assertEquals(json.getBoolean("depositpaid"), false, "depositpaid uyuşmadı");
+        softAssert.assertEquals(json.getString("bookingdates.checkin"), "2022-07-14", "checkin uyuşmadı");
+        softAssert.assertEquals(json.getString("bookingdates.checkout"), "2022-07-15", "checkout uyuşmadı");
+        softAssert.assertEquals(json.getString("additionalneeds"), "Extra Pillow", "uyusmadi");
 
         // 3) assertAll() kullanilir aksi takdirde kodumuz calidmaz assert islemei calismaz, herzaman pass olur
         softAssert.assertAll();
+
 
 
     }

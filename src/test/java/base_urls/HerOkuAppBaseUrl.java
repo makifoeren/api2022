@@ -6,7 +6,7 @@ import org.junit.Before;
 
 public class HerOkuAppBaseUrl {
 
-    protected RequestSpecification spec;
+    public RequestSpecification spec;
 
 
     @Before

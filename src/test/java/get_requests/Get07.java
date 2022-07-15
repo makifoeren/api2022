@@ -39,7 +39,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
 
         Response response = given().spec(spec).when().get("/{first}");
 
-       // response.prettyPrint();
+      response.prettyPrint();
 
         // 4.Step Do Assertion
 
@@ -73,10 +73,6 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
 
         // Assert that "delectus aut autem" is one of the titles whose id is less than 5
         Assert.assertTrue(titles.contains("delectus aut autem"));
-
-
-
-
 
 
 
