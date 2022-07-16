@@ -60,7 +60,8 @@ public class Post02 extends HerOkuAppBaseUrl {
         HerOkuAppTestData herokuapp = new HerOkuAppTestData();
         Map<String, String> bookingdatesMap = herokuapp.bookingdatesSetUp("2021-09-09", "2021-09-21");
 
-        Map<String, Object> expectedDataMap = herokuapp.expectedDataSetUp("Akif", "Yol", 11111, true, bookingdatesMap);
+        Map<String, Object> expectedDataMap = herokuapp.
+                expectedDataSetUp("Akif", "Yol", 11111, true, bookingdatesMap);
 
         // 3. Step Send the Post Request get the Response
 
@@ -71,8 +72,10 @@ public class Post02 extends HerOkuAppBaseUrl {
         //4. Step Do Assertion
 
         Map<String, Object> actualDataMap = response.as(HashMap.class);
+
 // actual kismi obje verecegi icin casting yapip map e donusturuyoruz
         Assert.assertEquals(200, response.statusCode());
+
         Assert.assertEquals(expectedDataMap.get("firstname"), ((Map) actualDataMap.get("booking")).get("firstname"));
         Assert.assertEquals(expectedDataMap.get("lastname"), ((Map) actualDataMap.get("booking")).get("lastname"));
         Assert.assertEquals(expectedDataMap.get("totalprice"), ((Map) actualDataMap.get("booking")).get("totalprice"));

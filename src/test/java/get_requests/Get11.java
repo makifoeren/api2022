@@ -54,7 +54,7 @@ public class Get11 extends GoRestBaseUrl {
                         equalTo("https://gorest.co.in/public/v1/users?page=1"),
                         "data.id", hasSize(10),
                         "data.status", hasItem("active"),
-                        "data.name", hasItems("Aalok Acharya DDS", "Kamla Chaturvedi", "Sitara Johar"));
+                        "data.name", hasItems("Vaishvi Tandon DO", "Deeptimoyee Gandhi Sr.", "Devi Nambeesan"));
 
         //bayan ve erkek sayısını karşılaştıralım
         //1. yol

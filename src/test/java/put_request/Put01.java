@@ -43,12 +43,14 @@ public class Put01 extends JsonPlaceHolderBaseUrl {
 
         JsonPlaceHolderTestData expectedData = new JsonPlaceHolderTestData();
 
-        Map<String, Object> expectedDataMap = expectedData.expectedDataWithAllKeys(21, "Wash the dishes", false);
+        Map<String, Object> expectedDataMap =
+                expectedData.expectedDataWithAllKeys(21, "Wash the dishes", false);
 
         //3. Step Send the put request
 
         Response response = given().spec(spec).contentType(ContentType.JSON).
                 body(expectedDataMap).when().put("/{first}/{second}");
+
         response.prettyPrint();
 
       // 4. Step DO Assertion

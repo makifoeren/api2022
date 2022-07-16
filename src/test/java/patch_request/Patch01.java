@@ -46,13 +46,16 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
 
         Map<String,Object> requestBodyMap= requestBody.expectedDataWithMissingAllKeys(null,"Wash the dishes",false);
       // 3. Step Send the Patch request get the response
-        Response response=given().spec(spec).contentType(ContentType.JSON).body(requestBodyMap).when().patch("/{first}/{second}");
+        Response response=given().spec(spec).contentType(ContentType.JSON).
+                body(requestBodyMap).when().patch("/{first}/{second}");
 
         response.prettyPrint();
 
         // 4. Step Do Assertion
 
-        Map<String,Object> mapToAssertAllDetails = requestBody.expectedDataWithAllKeys(10,"Wash the dishes",true);
+        Map<String,Object> mapToAssertAllDetails =
+                requestBody.expectedDataWithAllKeys(10,"Wash the dishes",true);
+
         response.then().assertThat().statusCode(200).body("title",equalTo(mapToAssertAllDetails.get("title")),
                 "userId",equalTo(mapToAssertAllDetails.get("userId")),
                 "completed",equalTo(mapToAssertAllDetails.get("completed")));

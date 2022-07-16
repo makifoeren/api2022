@@ -13,7 +13,6 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 
 public class Post01 extends JsonPlaceHolderBaseUrl {
-
     /*
          Given
            1) https://jsonplaceholder.typicode.com/todos
@@ -45,7 +44,7 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
         JsonPlaceHolderTestData expectedData = new JsonPlaceHolderTestData();
 
         Map<String, Object> expecteddataMap = expectedData.expectedDataWithAllKeys
-                (55, "Tidy your room", false);
+                (570, "Tidy your roommm", false);
 
         //3.Step Send post request and the get response
 
@@ -56,10 +55,11 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
 
         // 4. step Do Assert
         Map<String, Object> actualDataMap = response.as(HashMap.class);
-// response tipindeki datayi map e ceviriyoruz
+
+        // response tipindeki datayi map e ceviriyoruz
+
         Assert.assertEquals(expecteddataMap.get("userId"), actualDataMap.get("userId"));
         Assert.assertEquals(expecteddataMap.get("title"), actualDataMap.get("title"));
-
         Assert.assertEquals(expecteddataMap.get("completed"), actualDataMap.get("completed"));
     }
 
