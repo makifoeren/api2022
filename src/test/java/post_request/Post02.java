@@ -73,7 +73,7 @@ public class Post02 extends HerOkuAppBaseUrl {
 
         Map<String, Object> actualDataMap = response.as(HashMap.class);
 
-// actual kismi obje verecegi icin casting yapip map e donusturuyoruz
+        // actual kismi obje verecegi icin casting yapip map e donusturuyoruz
         Assert.assertEquals(200, response.statusCode());
 
         Assert.assertEquals(expectedDataMap.get("firstname"), ((Map) actualDataMap.get("booking")).get("firstname"));

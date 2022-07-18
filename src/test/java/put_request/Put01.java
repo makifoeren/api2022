@@ -31,6 +31,9 @@ public class Put01 extends JsonPlaceHolderBaseUrl {
 									    "title": "Wash the dishes",
 									    "completed": false
 									   }
+
+									   verilerin tamami gonderiyor
+
      */
 
     @Test
@@ -45,6 +48,8 @@ public class Put01 extends JsonPlaceHolderBaseUrl {
 
         Map<String, Object> expectedDataMap =
                 expectedData.expectedDataWithAllKeys(21, "Wash the dishes", false);
+
+        System.out.println(expectedDataMap);
 
         //3. Step Send the put request
 
