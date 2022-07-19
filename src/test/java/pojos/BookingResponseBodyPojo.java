@@ -34,7 +34,7 @@ public class BookingResponseBodyPojo {
         this.booking = booking;
     }
 
-    //4) toString() methodumuzu oluşturuyoruz.
+    //4) toString() methodumuzu oluşturuyoruz.....
 
     @Override
     public String toString() {
