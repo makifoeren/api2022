@@ -52,14 +52,15 @@ public class Post03Pojo extends JsonPlaceHolderBaseUrl {
         // 4. Step Do Assert
 
         JsonPlaceHolderPojo actualBody=response.as(JsonPlaceHolderPojo.class);
-// response JsonPlaceHolderPojo data formatina ceviriyoruz
+// response JsonPlaceHolderPojo data formatina ceviriyoruz cunlu requesrBody  JsonPlaceHolderPojo data formatinda
 
         Assert.assertEquals(requesrBody.getUserId(),actualBody.getUserId());
         Assert.assertEquals(requesrBody.getCompleted(),actualBody.getCompleted());
         Assert.assertEquals(requesrBody.getTitle(),actualBody.getTitle());
 
         Assert.assertEquals(requesrBody.toString(),actualBody.toString());
-
+// pojo class taki @JsonIgnoreProperties(ignoreUnknown = true) kaldirarark yaptigimiz da id den dolayi test pass olmuyor
+        // ve 54. satirda Json formatini JsonPlaceHolderPojo data formatina ceviremedigi icin orada duruyor
         System.out.println("requesrBody.toString() = " + requesrBody.toString());
 
         System.out.println("actualBody.toString() = " + actualBody.toString());
