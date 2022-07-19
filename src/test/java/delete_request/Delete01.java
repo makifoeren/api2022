@@ -35,6 +35,7 @@ public class Delete01 extends JsonPlaceHolderBaseUrl {
         //3. Step: Send DELETE Request and get the response
         Response response = given().spec(spec).when().delete("/{first}/{second}");
         response.prettyPrint();
+        // contentype veri gonderildiginde yapilir silmede yapilmayabilir
 
         //4. Step: Do Assertion
         //1. Yol
