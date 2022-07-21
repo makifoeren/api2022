@@ -14,6 +14,7 @@ import static io.restassured.RestAssured.given;
 
 public class Post01 extends JsonPlaceHolderBaseUrl {
     /*
+    gerekli end point le body yi gonderme zorunlulugu var
          Given
            1) https://jsonplaceholder.typicode.com/todos
            2)  {

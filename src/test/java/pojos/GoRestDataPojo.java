@@ -6,11 +6,12 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 public class GoRestDataPojo {
 
     //1) Tüm keyler için private variable 'lar oluşturuyoruz.
-    private Integer id;
-    private String name;
-    private String email;
-    private String gender;
-    private String status;
+   private Integer id;
+   private String name;
+   private String email;
+   private String gender;
+   private String status;
+
 
         //2) Tüm parametrelerle ve parametresiz constructor'larımızı oluşturuyoruz.
 

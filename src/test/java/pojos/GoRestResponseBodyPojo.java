@@ -11,16 +11,15 @@ public class GoRestResponseBodyPojo {
 
         //2) Tüm parametrelerle ve parametresiz constructor'larımızı oluşturuyoruz.
 
-    public GoRestResponseBodyPojo(Object meta, GoRestDataPojo data) {
-        this.meta = meta;
-        this.data = data;
-
-    }
-
     public GoRestResponseBodyPojo() {
     }
 
-        //3) Getters ve Setters'larımızı oluşturuyoruz.
+    public GoRestResponseBodyPojo(Object meta, GoRestDataPojo data) {
+        this.meta = meta;
+        this.data = data;
+    }
+
+    //3) Getters ve Setters'larımızı oluşturuyoruz.
 
     public Object getMeta() {
         return meta;
