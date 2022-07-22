@@ -73,7 +73,8 @@ public class Get14ObjectMapper extends JsonPlaceHolderBaseUrl {
             //2. Step: Set the expected Data
             JsonPlaceHolderTestData jsonPlaceHolderTestData = new JsonPlaceHolderTestData();
 
-            String expectedData = jsonPlaceHolderTestData.expectedDataInString(10,"quis eius est sint explicabo",true);
+            String expectedData = jsonPlaceHolderTestData.expectedDataInString
+                    (10,"quis eius est sint explicabo",true);
 
       /*  String expectedData = "{\n" +
                 "    \"userId\": 10,\n" +
