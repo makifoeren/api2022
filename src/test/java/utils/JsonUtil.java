@@ -16,11 +16,12 @@ public class JsonUtil {
 
     //1. Method: Json Datasını Java Objesine çevirir.(De-Serialization)
 // T -->key
-    public static <T> T convertJsonToJavaObject(String json, Class<T> cls){//Generic Method --> her turlu data tipi ile calisan
+    public static <T> T convertJsonToJavaObject(String json, Class<T> cls){
+        //Generic Method --> her turlu data tipi ile calisan
         T javaResult = null;
 
         try {
-            javaResult = mapper.readValue(json,cls); // datayi okuyup istenilen clas ta ver
+            javaResult = mapper.readValue(json,cls); //json datayi okuyup istenilen clas ta ver
         } catch (IOException e) {
             e.printStackTrace();
         }
