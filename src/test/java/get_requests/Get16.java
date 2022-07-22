@@ -58,6 +58,7 @@ public class Get16 extends DummyRestApiBaseUrl {
         // response.prettyPrint();
 
         //4. Step: Do Assertion
+
         response.then().
                 assertThat().
                 statusCode(200).//i) Status code is 200
@@ -65,8 +66,8 @@ public class Get16 extends DummyRestApiBaseUrl {
                 "data.employee_name", hasItems("Tiger Nixon", "Garrett Winters"));// iii) "Tiger Nixon" and "Garrett Winters" are among the employees
 
         // iv) The greatest age is 66
-        JsonPath json = response.jsonPath();
-        List<Integer> ageList = json.getList("data.findAll{it.id>0}.employee_age");
+        JsonPath json = response.jsonPath(); // response list olarak almak icin JsonPath kullaniyoruz
+        List<Integer> ageList = json.getList("data.findAll{it.id>0}.employee_age"); // grow laung kullanarak suzme
         System.out.println(ageList);
         Collections.sort(ageList);
         System.out.println(ageList);
